@@ -1,6 +1,7 @@
 package gmail_login_package;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,14 +12,16 @@ public class gmail_login_class {
 	
 	
 	
-	
+	     // main entry function to our project
 		public static void main(String[] args) {
 	
 		// declare variable name driver of type Webdriver
 		WebDriver driver;
+		//WebDriver driver2;
 		// instantiate a driver of a type chromedriver
 		System.setProperty("webdriver.chrome.driver", "/Users/monica.kipper/workspace/server_drivers/chromedriver");
 		driver = new ChromeDriver();
+		//driver2 = new ChromeDriver();
 		// define url where chrome driver will be accessing
 		String gmailBaseURL = "http://gmail.com";
 		// define string class name that we will be looking to make sure it exists
@@ -47,12 +50,12 @@ public class gmail_login_class {
 		 * 
 		 */
 		
+		
 		By ToFindByObject;
 		ToFindByObject = By.className(htmlCssClassName);
 		
 		WebElement WebElementToFind;
 		WebElementToFind = driver.findElement(ToFindByObject);
-		
 		
 		
 		//logic
@@ -61,6 +64,18 @@ public class gmail_login_class {
 			if(WebElementToFind.isDisplayed() == true)
 			{
 				 System.out.println("Yay");
+				 
+				 //By ElementThatActuallyHasTheText;
+				 //By.tagName("h1");
+				 
+				 WebElement H1WebElementWithOurText;
+				 
+				 H1WebElementWithOurText = WebElementToFind.findElement(By.tagName("h1"));
+				 
+				 if(H1WebElementWithOurText.isEnabled() && H1WebElementWithOurText.isDisplayed()) {
+					 
+					 System.out.println(H1WebElementWithOurText.getText());
+				 }
 				
 			}
 			else 
